@@ -12,9 +12,8 @@ const Footer = () => {
           <div className="group flex items-center gap-x-20 gap-y-10  flex-wrap">
             <div>
               <img src={logo} alt="" className="max-w-[50px] h-auto border-4 border-secondary-2 min-w-[60px] mb-5" />
-              <p className="text-xs text-secondary-2 text-thin max-w-[280px] mb-8 leading-[1.5]">
-                The team with the skills and passion to transform houses into dream homes, delivering exceptional quality, lasting
-                value, and peace of mind.
+              <p className="text-xs text-secondary-2 text-thin max-w-[200px] mb-8 leading-[1.5]">
+               The Shock Doc LLC – Electrician Services in Angier, NC
               </p>
               <div className="social-list flex gap-3">
                 <a
@@ -53,10 +52,10 @@ const Footer = () => {
             </ul>
 
             <ul className="">
-              <li className="text-secondary-2 mb-2"> Shelltedpete Handyman (serving Asheville NC area)</li>
-              <li className="text-secondary-2 mb-2">340 Merrimon Avenue, Asheville NC 28801</li>
-              <li className="text-secondary-2 mb-2">info @ shelltedpete.com</li>
-              <li className="text-secondary-2 mb-2">‪(980) 533-1889</li>
+              <li className="text-secondary-2 mb-2">The Shock Doc LLC</li>
+              <li className="text-secondary-2 mb-2">217 Paula Dr, Angier, NC 27501</li>
+              <li className="text-secondary-2 mb-2">shockdoc@truetradepros.com</li>
+              <li className="text-secondary-2 mb-2">‪(919) 633-5024</li>
             </ul>
           </div>
 

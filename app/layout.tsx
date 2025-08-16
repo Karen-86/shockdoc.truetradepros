@@ -27,7 +27,7 @@ const varelaRound = Varela_Round({
   weight: ["400"], // Varela Round only has 400 weight
 });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://shelltedpete.truetradepros.com/";
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://shockdoc.truetradepros.com";
 
 export const metadata: Metadata = {
   title: "Shelltedpete Asheville Handyman",
@@ -45,7 +45,7 @@ Wall Renovation: Fresh paint`,
     // apple: "/assets/images/favicon/apple-icon.png",
   },
   openGraph: {
-    title: "Sheet - Your Website Name",
+    title: "Raleigh, Durham, Chapel Hill, Angier Electricians",
     description: "This is the sheet page for managing your content.",
     url: `${siteUrl}`,
     siteName: "Your Website Name",
@@ -55,7 +55,7 @@ Wall Renovation: Fresh paint`,
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sheet - Your Website Name",
+    title: "Raleigh, Durham, Chapel Hill, Angier Electricians",
     description: "This is the sheet page for managing your content.",
     images: [`${siteUrl}/assets/images/logo.jpg`], //recomened sizes 1200x630, 1080 × 566, 600 × 315 | aspect ratio 1.91:1
   },

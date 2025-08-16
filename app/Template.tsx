@@ -10,6 +10,8 @@ import { useGlobalContext } from "@/context";
 const { headerImage, kitchenImage, handymanImage, bathroomImage, coverImage, ownerImage, teamImage } = localData.images;
 const { leadingLeftIcon, leadingRightIcon, quotesIcon, starIcon } = localData.svgs;
 
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://shockdoc.truetradepros.com";
+
 const Template = () => {
   return (
     <>
@@ -63,10 +65,10 @@ const ShowcaseSection = () => {
           </h1>
           <div className="lg:absolute 4xl:!relative lg:right-0 top-auto bottom-auto lg:mb-[-70px]  bg-success text-white max-w-[480px]  py-9 px-6 shadow-md ">
             <h2 className="text-[0.9rem] lg:text-[1.35rem] font-bold mb-[1rem]  font-sans uppercase leading-[1.2] ">
-              Expert Asheville Handyman Services for the Home or Business
+              Expert Electrician Services for the Home or Business
             </h2>
             <h3 className="text-left text-[1rem] lg:text-[1.25rem] font-medium mb-[1rem]  font-sans   ">
-              Schedule a Service or Request a FREE Estimate Now:
+              Schedule a Service:
             </h3>
             <form
               className=" text-left"
@@ -108,7 +110,11 @@ const ShowcaseSection = () => {
                 inputClassName="py-[1.2rem] rounded-[0] bg-white text-dark"
                 name="name"
                 type="text"
-                label="Your Name"
+                label={
+                  <div className="flex gap-[1px]">
+                    Your Name<div className="text-black font-lora leading-1">*</div>
+                  </div>
+                }
                 required={true}
                 value={state.name}
                 callback={(e) => handleOnChange(e)}
@@ -119,7 +125,11 @@ const ShowcaseSection = () => {
                 inputClassName="py-[1.2rem] rounded-[0] bg-white text-dark"
                 name="submitted_email"
                 type="text"
-                label="Your Email"
+                label={
+                  <div className="flex gap-[1px]">
+                    Your Email<div className="text-black font-lora leading-1">*</div>
+                  </div>
+                }
                 required={true}
                 value={state.submitted_email}
                 callback={(e) => handleOnChange(e)}
@@ -131,7 +141,6 @@ const ShowcaseSection = () => {
                 name="phone"
                 type="tel"
                 label="Your Phone"
-                required={true}
                 value={state.phone}
                 callback={(e) => handleOnChange(e)}
               />
@@ -148,14 +157,9 @@ const ShowcaseSection = () => {
                 callback={(e) => handleOnChange(e)}
               />
 
-              <input
-                type="text"
-                name="image"
-                defaultValue="https://shelltedpete.vercel.app/assets/images/logo.jpg"
-                className="hidden"
-              />
+              <input type="text" name="image" defaultValue={`${siteUrl}/assets/images/logo.png`} className="hidden" />
               <input type="text" name="CONTENT" className="hidden" />
-              <input type="text" name="to_email" defaultValue="info@shelltedpete.com" className="hidden" />
+              <input type="text" name="to_email" defaultValue="shockdoc@truetradepros.com" className="hidden" />
               <ButtonDemo disabled={isLoading} text="Submit" className="!mr-auto py-5" />
             </form>
           </div>
@@ -170,11 +174,11 @@ const RemodelingSection = () => {
     <section className="remodeling" id="services">
       <div className="container">
         <h5 className="border-b block border-dark mb-10 max-w-fit mx-auto">
-          <a target="_blank" href="sms:+19805331889" className="font-bold">
-            contact us by text ‪(980) 533-1889
+          <a target="_blank" href="sms:+9196335024" className="font-bold">
+            contact us by text ‪(919) 633-5024
           </a>
         </h5>
-        <div className="group grid lg:grid-cols-3 gap-[30px]  justify-center">
+        {/* <div className="group grid lg:grid-cols-3 gap-[30px]  justify-center">
           <div className="remodel max-w-[500px]">
             <div className="remodel-cover relative w-full h-0 pt-[56.25%] shadow rounded-md overflow-hidden mb-[1rem]">
               <Image
@@ -412,8 +416,14 @@ const RemodelingSection = () => {
               </li>
             </ul>
           </div>
-        </div>
-        <div className="flex gap-7 gap-y-10 flex-wrap justify-center max-w-[500px] mx-auto mt-[100px] mb-[30px] ">
+        </div> */}
+
+        <h2 className="text-2xl  font-sans  mb-5 text-center font-bold ">Residential & Commercial Electrical Services</h2>
+        <p className="text-secondary text-center max-w-[700px] mx-auto mb-[3rem]">
+          We provide top-quality electrical work for homeowners, businesses, and contractors in Angier, NC, and surrounding areas.
+        </p>
+
+        <div className="flex gap-7 gap-y-10 flex-wrap justify-center  mx-auto mt-[100px] mb-[30px] ">
           <div className="flex items-center font-sans   justify-between max-w-[180px] w-full">
             <div className="h-[80px]">{leadingLeftIcon}</div>
             <div className="text-center  ">
@@ -444,6 +454,478 @@ const RemodelingSection = () => {
             <div className="h-[80px]">{leadingRightIcon}</div>
           </div>
         </div>
+
+        {/* <div className="font-sans  gap-y-5 gap-x-5 grid gap-6 sm:gap-8 [grid-template-columns:repeat(auto-fit,minmax(250px,1fr))]">
+          <div>
+            <h4 className="text-lg  mb-1">Panel & Service Upgrades</h4>
+            <ul className=" max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Replace outdated breaker panels with modern, high-capacity systems.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Upgrade service to meet growing electrical demands.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Correct unsafe wiring and code violations.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg  mb-1">Wiring & Rewiring</h4>
+            <ul className=" max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Whole-home rewiring for safety and efficiency.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Installation of new circuits for appliances, additions, and workshops.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Replacement of aluminum wiring with copper.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg  mb-1">Lighting Installation & Upgrades</h4>
+            <ul className=" max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Indoor & outdoor lighting, including recessed, pendant, and security lights.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">LED retrofits for improved efficiency.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Motion-sensor, landscape, and decorative lighting setups.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg  mb-1">Outlet & Switch Installation</h4>
+            <ul className=" max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">GFCI outlets for kitchens, bathrooms, and outdoor areas.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">USB outlets for convenient charging.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Dimmer switches for customizable lighting control.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg  mb-1">Electrical Troubleshooting & Repairs</h4>
+            <ul className=" max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Identify and fix electrical faults quickly and safely.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Restore power after outages or equipment failure.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Replace damaged or worn components before they become hazards.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg  mb-1">EV Charger Installation</h4>
+            <ul className=" max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Home and commercial electric vehicle charger setups.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Level 1, Level 2, and rapid charging stations.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Code-compliant installations for safe, reliable charging.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg  mb-1">Surge Protection</h4>
+            <ul className=" max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Whole-home surge protection to safeguard electronics.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Dedicated protection for sensitive equipment.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg  mb-1">24/7 Power Restoration</h4>
+            <ul className=" max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className=" dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1"> Rapid response to restore power anytime, day or night.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg mb-1">24/7 Power Restoration</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Rapid response to restore power anytime, day or night.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg mb-1">Circuit Breaker Repairs & Replacement</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Fixing tripped or faulty breakers to restore safe electrical flow.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg mb-1">Electrical Panel Issues</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Repairing overheating, buzzing, or damaged panels immediately.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg mb-1">Storm & Lightning Damage Repairs</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Restoring systems damaged by surges, wind, or flooding.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg mb-1">Burning Smell / Smoke Response</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Identifying and eliminating electrical fire hazards on the spot.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg mb-1">Exposed or Live Wire Repairs</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Making dangerous wiring safe and compliant instantly.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg mb-1">Emergency Rewiring</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Replacing failed or hazardous wiring in critical areas.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg mb-1">Faulty Outlet & Switch Repairs</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Fixing sparks, overheating, and non-working outlets or switches.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg mb-1">Generator Hook-Up & Repair</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Emergency backup power installation and troubleshooting.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg mb-1">Flickering or Loss of Lighting</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Restoring steady, reliable lighting for safety and comfort.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg mb-1">Appliance & Equipment Power Issues</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Repairing urgent power failures in essential equipment.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg mb-1">Electrical Shock Hazards</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Eliminating dangerous conditions that can cause electric shock.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg mb-1">Code Violation Corrections</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Bringing unsafe, non-compliant electrical setups up to standard.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg mb-1">Underground Line Repairs</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Locating and fixing damaged underground electrical cables.</div>
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 className="text-lg mb-1">Water-Damaged Electrical Systems</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Safely drying, repairing, and restoring flooded electrical components.</div>
+              </li>
+            </ul>
+          </div>
+        </div> */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 p-6">
+          {/* Column 1 */}
+          <div>
+            <h4 className="text-lg mb-1">Panel & Service Upgrades</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Replace outdated breaker panels with modern, high-capacity systems.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Upgrade service to meet growing electrical demands.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Correct unsafe wiring and code violations.</div>
+              </li>
+            </ul>
+
+            <h4 className="text-lg mb-1 mt-4">Wiring & Rewiring</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Whole-home rewiring for safety and efficiency.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Installation of new circuits for appliances, additions, and workshops.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Replacement of aluminum wiring with copper.</div>
+              </li>
+            </ul>
+
+            <h4 className="text-lg mb-1 mt-4">Circuit Breaker Repairs & Panel Issues</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">
+                  Circuit Breaker Repairs & Replacement: Fixing tripped or faulty breakers to restore safe electrical flow.
+                </div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">
+                  Electrical Panel Issues: Repairing overheating, buzzing, or damaged panels immediately.
+                </div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Emergency Rewiring: Replacing failed or hazardous wiring in critical areas.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">
+                  Code Violation Corrections: Bringing unsafe, non-compliant electrical setups up to standard.
+                </div>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 2 */}
+          <div>
+            <h4 className="text-lg mb-1">Lighting Installation & Upgrades</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Indoor & outdoor lighting, including recessed, pendant, and security lights.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">LED retrofits for improved efficiency.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Motion-sensor, landscape, and decorative lighting setups.</div>
+              </li>
+            </ul>
+
+            <h4 className="text-lg mb-1 mt-4">Outlet & Switch Installation</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">GFCI outlets for kitchens, bathrooms, and outdoor areas.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">USB outlets for convenient charging.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Dimmer switches for customizable lighting control.</div>
+              </li>
+            </ul>
+
+            <h4 className="text-lg mb-1 mt-4">Electrical Troubleshooting & Repairs</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Identify and fix electrical faults quickly and safely.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Restore power after outages or equipment failure.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Replace damaged or worn components before they become hazards.</div>
+              </li>
+            </ul>
+          </div>
+
+          {/* Column 3 */}
+          <div>
+            <h4 className="text-lg mb-1">EV Charger & Surge Protection</h4>
+            <ul className="max-w-[400px] ml-4">
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Home and commercial electric vehicle charger setups.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Level 1, Level 2, and rapid charging stations.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Code-compliant installations for safe, reliable charging.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2 mt-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Whole-home surge protection to safeguard electronics.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Dedicated protection for sensitive equipment.</div>
+              </li>
+
+              <h4 className="text-lg mb-1 mt-4">Emergency Services</h4>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">24/7 Power Restoration: Rapid response to restore power anytime, day or night.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Generator Hook-Up & Repair: Emergency backup power installation and troubleshooting.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">
+                  Appliance & Equipment Power Issues: Repairing urgent power failures in essential equipment.
+                </div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">
+                  Electrical Shock Hazards: Eliminating dangerous conditions that can cause electric shock.
+                </div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">
+                  Storm & Lightning Damage Repairs: Restoring systems damaged by surges, wind, or flooding.
+                </div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">
+                  Burning Smell / Smoke Response: Identifying and eliminating electrical fire hazards on the spot.
+                </div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Exposed or Live Wire Repairs: Making dangerous wiring safe and compliant instantly.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">Underground Line Repairs: Locating and fixing damaged underground electrical cables.</div>
+              </li>
+              <li className="mb-1 text-sm text-secondary flex gap-2">
+                <div className="dot w-1 h-1 bg-dark mt-2 rounded"></div>
+                <div className="flex-1">
+                  Water-Damaged Electrical Systems: Safely drying, repairing, and restoring flooded electrical components.
+                </div>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
     </section>
   );
@@ -466,7 +948,7 @@ const AboutUsSection = () => {
             <div className="max-w-[500px] relative ">
               <div className="h-[110px] absolute top-[-20px] z-[-1] left-0 text-[rgba(227,233,239,.7)]">{quotesIcon}</div>
               <h4 className="text-2xl font-bold font-sans mb-5">Message From The Owner</h4>
-              <p>
+              {/* <p>
                 <strong>Hi, I’m Dmitriy Fadyukhin, </strong> the founder and owner of
                 <strong> Shelltedpete. </strong> I named my construction company after my kids: Shell, Ted and Pete.
                 <br />
@@ -477,7 +959,20 @@ const AboutUsSection = () => {
                 <strong>Reach out anytime.</strong>
               </p>
               <br />
-              <h6 className="text-right text-sm mr-2 italic">Dmitriy Fadyukin, Owner & Project Lead</h6>
+              <h6 className="text-right text-sm mr-2 italic">Dmitriy Fadyukin, Owner & Project Lead</h6> */}
+
+              <p>
+                Hi, I’m Michael Edwin Bentkowski, founder and owner of <strong>The Shock Doc LLC.</strong>
+                Our mission is to provide reliable, safe, and expert electrical solutions for your home or business. Whether it’s
+                upgrading your breaker panel, installing a new EV charger, or troubleshooting an electrical issue, you can count
+                on us for exceptional service and honest pricing.
+                <br />
+                <br />
+                Reach out anytime – I look forward to powering your next project.
+              </p>
+
+              <br />
+              <h6 className="text-right text-sm mr-2 italic">— Michael Edwin Bentkowski, Owner & Lead Electrician</h6>
             </div>
 
             <div>
@@ -514,13 +1009,9 @@ const AboutUsSection = () => {
               <div className="h-[110px] absolute top-[-20px] z-[-1] left-0 text-[rgba(227,233,239,.7)]">{quotesIcon}</div>
               <h4 className="text-2xl font-bold font-sans mb-5">Meet Our Crew</h4>
               <p>
-                <strong>
-                  Our Crew is hardworking, great with customers, well-mannered, respectful, and dedicated to high quality work.{" "}
-                </strong>
-                <br />
-                <br />
-                We take pride in each project and always strive for excellence. From start to finish, you can trust that our team
-                will handle your home improvement needs with care and expertise.
+                Our team is professional, courteous, and dedicated to delivering electrical work that meets the highest safety and
+                quality standards. From the first call to final inspection, we make sure your project is handled with precision
+                and care.
               </p>
             </div>
             <div className=" md:order-1">
@@ -558,15 +1049,14 @@ const Testimonial = () => {
               <div className="w-[20px] fill-success">{starIcon}</div>
               <div className="w-[20px] fill-success">{starIcon}</div>
             </div>
-            <h3 className="text-center font-bold text-[1.2rem] tracking-wide mb-5">"Great Service"</h3>
+            <h3 className="text-center font-bold text-[1.2rem] tracking-wide mb-5">"Professional and Reliable"</h3>
             <p className="testimonial-text text-center mb-3">
               {/* <div className="h-[18px]  top-[-20px] z-[-1] left-0 text-white mb-2">{quotesIcon}</div> */}
-              Dmitriy is a highly skilled professional capable of completing a variety of jobs. He is a great communicator, shows
-              up on time, keeps a tidy work space and is transparent with his pricing. My clients have all been pleased with his
-              work.
+              Michael quickly diagnosed my electrical problem and had it fixed the same day. He was punctual, friendly, and very
+              knowledgeable. Highly recommend The Shock Doc for any electrical needs!
             </p>
             <br />
-            <h2 className="text-center font-thin text-success">Stacey Enos</h2>
+            <h2 className="text-center font-thin text-success">— J. Matthews</h2>
           </div>
         </div>
       </div>
